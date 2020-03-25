@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { CarouselModule } from './modules/carousel/carousel.module';
+
+import envs from './config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot({
+      ...envs.database,
+      autoLoadEntities: true,
+    }),
+    CarouselModule,
+  ],
 })
 export class AppModule {}

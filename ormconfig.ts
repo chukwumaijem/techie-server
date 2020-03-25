@@ -6,7 +6,6 @@ export = {
   migrations: ['src/migrations/**/*.ts'],
   cli: {
     entitiesDir: 'src/modules',
-    migrationsDir: 'src/migrations'
+    migrationsDir: 'src/migrations',
   },
-  synchronize: true,
 };
