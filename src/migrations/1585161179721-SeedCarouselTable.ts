@@ -3,7 +3,7 @@ import { Carousel } from '../modules/carousel/carousel.entity';
 import { carousel } from '../seed/carousel.seed';
 
 export class SeedCarouselTable1585151003854 implements MigrationInterface {
-  name = 'SeedCarouselTable1585151003854';
+  name = 'SeedCarouselTable1585161179721';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     const carouselRepo = await queryRunner.manager.getRepository(Carousel);
