@@ -12,5 +12,5 @@ export class Carousel extends BaseEntity {
   description: string;
 
   @Column()
-  image_url: string;
+  imageUrl: string;
 }
