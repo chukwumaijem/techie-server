@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CarouselModule } from './modules/carousel/carousel.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
 
+import { CarouselModule } from './modules/carousel/carousel.module';
 import envs from './config';
 
 @Module({
@@ -11,6 +13,11 @@ import envs from './config';
       autoLoadEntities: true,
     }),
     CarouselModule,
+    GraphQLModule.forRoot({
+      debug: !envs.isProduction,
+      playground: !envs.isProduction,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
   ],
 })
 export class AppModule {}
