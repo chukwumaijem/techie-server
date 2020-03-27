@@ -18,6 +18,10 @@ export class Product extends BaseEntity {
 
   @Field()
   @Column()
+  model: string;
+
+  @Field()
+  @Column()
   description: string;
 
   @Field()
@@ -37,8 +41,4 @@ export class Product extends BaseEntity {
   @Field()
   @Column()
   department: string;
-
-  @Field()
-  @Column()
-  productNames: string;
 }
