@@ -1,4 +1,5 @@
 import { Resolver, Query } from '@nestjs/graphql';
+
 import { CarouselService } from './carousel.service';
 import { Carousel } from './carousel.entity';
 

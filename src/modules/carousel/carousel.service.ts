@@ -9,11 +9,11 @@ import { Carousel } from './carousel.entity';
 export class CarouselService {
   constructor(
     @InjectRepository(Carousel)
-    private carouselRepository: Repository<Carousel>,
+    private carouselRepo: Repository<Carousel>,
   ) {}
 
   async getAll(): Promise<Carousel[]> {
-    const carousel = await this.carouselRepository.find();
+    const carousel = await this.carouselRepo.find();
     return shuffle(carousel);
   }
 }
