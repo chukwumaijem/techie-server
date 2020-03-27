@@ -3,8 +3,8 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 import { Product } from '../modules/product/product.entity';
 import { products } from '../seed/products.seed';
 
-export class SeedProductTable1585205289178 implements MigrationInterface {
-  name = 'SeedProductTable1585205289178';
+export class SeedProductTable1585265334898 implements MigrationInterface {
+  name = 'SeedProductTable1585265334898';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     const productRepo = await queryRunner.manager.getRepository(Product);

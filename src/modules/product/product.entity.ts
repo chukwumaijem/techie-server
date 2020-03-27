@@ -24,11 +24,11 @@ export class Product extends BaseEntity {
   @Column()
   company: string;
 
-  @Column()
+  @Column({ default: '' })
   ratingsString: string;
 
-  @Field(() => [Int])
-  ratings
+  @Field(() => [Int], { nullable: "items" })
+  ratings: number[];
 
   @Field()
   @Column()
