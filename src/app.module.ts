@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 
 import { CarouselModule } from './modules/carousel/carousel.module';
+import { ProductModule } from './modules/product/product.module';
 import envs from './config';
 
 @Module({
@@ -18,6 +19,7 @@ import envs from './config';
       playground: !envs.isProduction,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    ProductModule,
   ],
 })
 export class AppModule {}
