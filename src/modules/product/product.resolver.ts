@@ -25,9 +25,10 @@ export class ProductResolver {
     return this.productService.getProducts(pageNumber);
   }
 
-  @Query(() => [Product], { name: 'cartProducts' })
+  @Query(() => [Product], { name: 'cartProducts', nullable: 'items' })
   async productsDetail(
-    @Args('productIds', { type: () => [ID] }) productIds: string[],
+    @Args('productIds', { type: () => [ID], nullable: 'items' })
+    productIds: string[],
   ) {
     return this.productService.getProductsDetail(productIds);
   }

@@ -31,6 +31,8 @@ export class ProductService {
   }
 
   async getProductsDetail(productIds: string[]): Promise<Product[]> {
+    if (!productIds.length) return [];
+
     const products = await this.productRepo.find({
       id: In(productIds),
     });
