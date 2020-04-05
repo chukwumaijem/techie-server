@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, In } from 'typeorm';
 
 import { Product } from './product.entity';
 import { GetProductDto } from './product.dto';
@@ -28,5 +28,15 @@ export class ProductService {
       products,
       total: productsCount,
     };
+  }
+
+  async getProductsDetail(productIds: string[]): Promise<Product[]> {
+    if (!productIds.length) return [];
+
+    const products = await this.productRepo.find({
+      id: In(productIds),
+    });
+
+    return products;
   }
 }

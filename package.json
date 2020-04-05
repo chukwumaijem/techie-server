@@ -37,6 +37,7 @@
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.4",
     "slug": "^2.1.1",
+    "stripe": "^8.38.0",
     "typeorm": "^0.2.24"
   },
   "devDependencies": {
