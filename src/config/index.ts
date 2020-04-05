@@ -15,6 +15,7 @@ const envsFromFile = {
   DB_USERNAME: string().required(),
   DB_PASSWORD: string().required(),
   DB_PORT: number().required(),
+  STRIPE_SECRET_KEY: string().required(),
 };
 
 const envVarKeys = Object.keys(envsFromFile);
@@ -42,4 +43,5 @@ export default {
   NODE_ENV: envVars.NODE_ENV,
   PORT: envVars.PORT || 7000, // app port
   database,
+  stripeSecretKey: envVars.STRIPE_SECRET_KEY,
 };

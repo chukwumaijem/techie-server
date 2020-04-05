@@ -1,5 +1,4 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
-import Stripe from 'stripe';
+import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 
 import { PaymentService } from './payment.service';
 import { PaymentStatus } from './payment.dto';
@@ -9,7 +8,7 @@ export class PaymentResolver {
   constructor(private paymentService: PaymentService) {}
 
   @Query(() => PaymentStatus)
-  async confirmPaymentAndChargeCard(@Args('paymentIntent') paymentIntent: Stripe.PaymentIntentsResource) {
-    return this.paymentService.confirmPaymentAndChargeCard(paymentIntent);
+  async createPaymentIntent(@Args('amount', { type: () => Int}) amount: number) {
+    return this.paymentService.createPaymentIntent(amount);
   }
 }
